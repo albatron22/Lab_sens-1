@@ -5,48 +5,48 @@
 
 void LCD_SendNibble(unsigned char Nibble)
 {
-	pLCD_PORT &= 0x0F;
-	Nibble &= 0xF0;
-	pLCD_PORT |= Nibble;
-	_delay_us(8);
-	pLCD_PORT |= (1 << pLCD_E_LINE);
-	_delay_us(8);
-	pLCD_PORT &= ~(1 << pLCD_E_LINE);
-	_delay_us(40);
+    pLCD_PORT &= 0x0F;
+    Nibble &= 0xF0;
+    pLCD_PORT |= Nibble;
+    _delay_us(8);
+    pLCD_PORT |= (1 << pLCD_E_LINE);
+    _delay_us(8);
+    pLCD_PORT &= ~(1 << pLCD_E_LINE);
+    _delay_us(40);
 }
 
 void LCD_SendData(unsigned char Data)
 {
-	pLCD_PORT &= ~(1 << pLCD_RW_LINE);
-	pLCD_PORT |= (1 << pLCD_RS_LINE);
-	LCD_SendNibble(Data & 0xF0);
-	LCD_SendNibble((Data << 4) & 0xF0);
-	pLCD_PORT |= (1 << pLCD_RW_LINE);
+    pLCD_PORT &= ~(1 << pLCD_RW_LINE);
+    pLCD_PORT |= (1 << pLCD_RS_LINE);
+    LCD_SendNibble(Data & 0xF0);
+    LCD_SendNibble((Data << 4) & 0xF0);
+    pLCD_PORT |= (1 << pLCD_RW_LINE);
 }
 
 void LCD_SendCommand(unsigned char Command)
 {
-	pLCD_PORT &= ~(1 << pLCD_RW_LINE);
-	pLCD_PORT &= ~(1 << pLCD_RS_LINE);
-	LCD_SendNibble(Command & 0xF0);
-	LCD_SendNibble((Command << 4) & 0xF0);
-	pLCD_PORT |= (1 << pLCD_RW_LINE);
+    pLCD_PORT &= ~(1 << pLCD_RW_LINE);
+    pLCD_PORT &= ~(1 << pLCD_RS_LINE);
+    LCD_SendNibble(Command & 0xF0);
+    LCD_SendNibble((Command << 4) & 0xF0);
+    pLCD_PORT |= (1 << pLCD_RW_LINE);
 }
 
 void LCD_Init(void)
 {
-	pLCD_PORT &= 0x0F;
-	pLCD_DDR |= 0xF0;
-	pLCD_PORT &= ~(1 << pLCD_RS_LINE);
-	pLCD_PORT &= ~(1 << pLCD_E_LINE);
-	pLCD_PORT &= ~(1 << pLCD_RW_LINE);
-	pLCD_DDR |= (1 << pLCD_RS_LINE);
-	pLCD_DDR |= (1 << pLCD_E_LINE);
-	pLCD_DDR |= (1 << pLCD_RW_LINE);
+    pLCD_PORT &= 0x0F;
+    pLCD_DDR |= 0xF0;
+    pLCD_PORT &= ~(1 << pLCD_RS_LINE);
+    pLCD_PORT &= ~(1 << pLCD_E_LINE);
+    pLCD_PORT &= ~(1 << pLCD_RW_LINE);
+    pLCD_DDR |= (1 << pLCD_RS_LINE);
+    pLCD_DDR |= (1 << pLCD_E_LINE);
+    pLCD_DDR |= (1 << pLCD_RW_LINE);
 
-	pLCD_PORT &= ~(1 << pLCD_RS_LINE);
-	pLCD_PORT &= ~(1 << pLCD_RW_LINE);
-	/*LCD_SendNibble(0x20);
+    pLCD_PORT &= ~(1 << pLCD_RS_LINE);
+    pLCD_PORT &= ~(1 << pLCD_RW_LINE);
+    /*LCD_SendNibble(0x20);
 	_delay_us(160);
 	LCD_SendNibble(0x20);
 	_delay_us(160);
@@ -63,70 +63,70 @@ void LCD_Init(void)
 	_delay_us(160);
 	LCD_SendCommand(0x01);
 	_delay_ms(2);*/
-		LCD_SendNibble(0x30);			//Ïîñëàòü òåòðàäó 0b0011
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendNibble(0x30);			//Ïîñëàòü òåòðàäó 0b0011
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendNibble(0x30);			//Ïîñëàòü òåòðàäó 0b0011
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendNibble(0x20);			//Ïîñëàòü òåòðàäó 0b0010
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendCommand(0x28);			//Óñòàíîâêà 4-ðàçðÿäíîãî îáìåíà
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendCommand(0x0C);			//Âêëþ÷èòü äèñïëåé. Êóðñîð âûêëþ÷åí
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendCommand(0x04);			//Êóðñîð ñäâèãàåòñÿ âïðàâî. Çàïðåò ñäâèãà äèñïëåÿ.
-	_delay_us(160);				//Çàäåðæêà 40 ìêñ
-	LCD_SendCommand(0x01);			//Î÷èñòêà äèñïëåÿ
-	_delay_us(2000);				//Çàäåðæêà 1,5 ìñ
+    LCD_SendNibble(0x30);  //ÐŸÐ¾ÑÐ»Ð°Ñ‚ÑŒ Ñ‚ÐµÑ‚Ñ€Ð°Ð´Ñƒ 0b0011
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendNibble(0x30);  //ÐŸÐ¾ÑÐ»Ð°Ñ‚ÑŒ Ñ‚ÐµÑ‚Ñ€Ð°Ð´Ñƒ 0b0011
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendNibble(0x30);  //ÐŸÐ¾ÑÐ»Ð°Ñ‚ÑŒ Ñ‚ÐµÑ‚Ñ€Ð°Ð´Ñƒ 0b0011
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendNibble(0x20);  //ÐŸÐ¾ÑÐ»Ð°Ñ‚ÑŒ Ñ‚ÐµÑ‚Ñ€Ð°Ð´Ñƒ 0b0010
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendCommand(0x28); //Ð£ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° 4-Ñ€Ð°Ð·Ñ€ÑÐ´Ð½Ð¾Ð³Ð¾ Ð¾Ð±Ð¼ÐµÐ½Ð°
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendCommand(0x0C); //Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð´Ð¸ÑÐ¿Ð»ÐµÐ¹. ÐšÑƒÑ€ÑÐ¾Ñ€ Ð²Ñ‹ÐºÐ»ÑŽÑ‡ÐµÐ½
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendCommand(0x04); //ÐšÑƒÑ€ÑÐ¾Ñ€ ÑÐ´Ð²Ð¸Ð³Ð°ÐµÑ‚ÑÑ Ð²Ð¿Ñ€Ð°Ð²Ð¾. Ð—Ð°Ð¿Ñ€ÐµÑ‚ ÑÐ´Ð²Ð¸Ð³Ð° Ð´Ð¸ÑÐ¿Ð»ÐµÑ.
+    _delay_us(160);        //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 40 Ð¼ÐºÑ
+    LCD_SendCommand(0x01); //ÐžÑ‡Ð¸ÑÑ‚ÐºÐ° Ð´Ð¸ÑÐ¿Ð»ÐµÑ
+    _delay_us(2000);       //Ð—Ð°Ð´ÐµÑ€Ð¶ÐºÐ° 1,5 Ð¼Ñ
 }
 
 void LCD_Clear(void)
 {
-	LCD_SendCommand(0x01);
-	_delay_ms(2);
+    LCD_SendCommand(0x01);
+    _delay_ms(2);
 }
 
 void LCD_GotoXY(unsigned char X, unsigned char Y)
 {
-	unsigned char Temp = 0; //Âðåìåííàÿ ïåðåìåííàÿ
-	switch (Y)
-	//Â çàâèñèìîñòè îò âåðòèêàëüíîé êîîðäèíàòû
-	{
-		case 0:
-			Temp = 0x00;
-			break; //Êîîðäèíàòà íà÷àëà ïåðâîé ñòðî÷êè
-		case 1:
-			Temp = 0x40;
-			break; //Êîîðäèíàòà íà÷àëà âòîðîé ñòðî÷êè
-		case 2:
-			Temp = 0x10;
-			break; //Êîîðäèíàòà íà÷àëà òðåòüåé ñòðî÷êè
-		case 3:
-			Temp = 0x50;
-			break; //Êîîðäèíèòà íà÷àëà ÷åòâåðòîé ñòðî÷êè
-	}
-	Temp += X; //Ïðèáàâèòü ãîðèçîíòàëüíóþ êîîðäèíàòó
-	Temp |= 0b10000000; //Óñòàíîâèòü ñòàðøèé áèò êîìàíäû - ïðèçíàê
-	LCD_SendCommand(Temp); //êîìàíäû äëÿ óñòàíîâêè àäðåñà DDRAM
+    unsigned char Temp = 0; //Ð’Ñ€ÐµÐ¼ÐµÐ½Ð½Ð°Ñ Ð¿ÐµÑ€ÐµÐ¼ÐµÐ½Ð½Ð°Ñ
+    switch (Y)
+    //Ð’ Ð·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ÑÑ‚Ð¸ Ð¾Ñ‚ Ð²ÐµÑ€Ñ‚Ð¸ÐºÐ°Ð»ÑŒÐ½Ð¾Ð¹ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹
+    {
+    case 0:
+        Temp = 0x00;
+        break; //ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð° Ð½Ð°Ñ‡Ð°Ð»Ð° Ð¿ÐµÑ€Ð²Ð¾Ð¹ ÑÑ‚Ñ€Ð¾Ñ‡ÐºÐ¸
+    case 1:
+        Temp = 0x40;
+        break; //ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð° Ð½Ð°Ñ‡Ð°Ð»Ð° Ð²Ñ‚Ð¾Ñ€Ð¾Ð¹ ÑÑ‚Ñ€Ð¾Ñ‡ÐºÐ¸
+    case 2:
+        Temp = 0x10;
+        break; //ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ð° Ð½Ð°Ñ‡Ð°Ð»Ð° Ñ‚Ñ€ÐµÑ‚ÑŒÐµÐ¹ ÑÑ‚Ñ€Ð¾Ñ‡ÐºÐ¸
+    case 3:
+        Temp = 0x50;
+        break; //ÐšÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð¸Ñ‚Ð° Ð½Ð°Ñ‡Ð°Ð»Ð° Ñ‡ÐµÑ‚Ð²ÐµÑ€Ñ‚Ð¾Ð¹ ÑÑ‚Ñ€Ð¾Ñ‡ÐºÐ¸
+    }
+    Temp += X;             //ÐŸÑ€Ð¸Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð³Ð¾Ñ€Ð¸Ð·Ð¾Ð½Ñ‚Ð°Ð»ÑŒÐ½ÑƒÑŽ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñƒ
+    Temp |= 0b10000000;    //Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÑÑ‚Ð°Ñ€ÑˆÐ¸Ð¹ Ð±Ð¸Ñ‚ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹ - Ð¿Ñ€Ð¸Ð·Ð½Ð°Ðº
+    LCD_SendCommand(Temp); //ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹ Ð´Ð»Ñ ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ¸ Ð°Ð´Ñ€ÐµÑÐ° DDRAM
 }
 
-void LCD_SendString(char * String, unsigned char MaxLength)
+void LCD_SendString(char *String, unsigned char MaxLength)
 {
-	for (unsigned char Iterator = 0; Iterator < MaxLength; Iterator++)
-	{
-		//if (String[Iterator] == 0) break;
-		LCD_SendData(String[Iterator]);
-	}
+    for (unsigned char Iterator = 0; Iterator < MaxLength; Iterator++)
+    {
+        //if (String[Iterator] == 0) break;
+        LCD_SendData(String[Iterator]);
+    }
 }
 
-void LCD_SendStringLocal(char * String, unsigned char MaxLength)
+void LCD_SendStringLocal(char *String, unsigned char MaxLength)
 {
-  
 
-	for (unsigned char Iterator = 0; Iterator < MaxLength; Iterator++)
-	{
-		if (String[Iterator] == 0) break;
-		LCD_SendData(String[Iterator]);
-	}
+    for (unsigned char Iterator = 0; Iterator < MaxLength; Iterator++)
+    {
+        if (String[Iterator] == 0)
+            break;
+        LCD_SendData(String[Iterator]);
+    }
 }

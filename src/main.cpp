@@ -26,6 +26,10 @@ void loop()
     //вывод информации на экран
     LCD_Clear();
     LCD_GotoXY(0, 0);
-    LCD_SendString((char *)message, sprintf((char *)message, "Illumination: %.3f lux\r\n", illuminance));
+    sprintf((char *)message, "ADC:%d", adc_value);
+    LCD_SendString((char *)message, strlen((char *)message));
+    LCD_GotoXY(0, 1);
+    sprintf((char *)message, "Ill:%.2f", illuminance);
+    LCD_SendString((char *)message, strlen((char *)message));
     _delay_ms(1000);
 }
