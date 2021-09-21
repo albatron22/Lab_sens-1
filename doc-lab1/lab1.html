@@ -17,7 +17,8 @@
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -31,11 +32,129 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="лабораторная-работа--1-фоторезистор-как-датчик-освещённости-датчик-холла-для-измерения-магнитного-поля">Лабораторная работа № 1. &quot;Фоторезистор как датчик освещённости. Датчик Холла для измерения магнитного поля&quot;</h1>
+<p><em>Знакомство со стендом. Датчики. Фоторезистор как датчик освещенности. Датчик Холла для измерения магнитного поля (наличия магнита).</em></p>
+<ul>
+<li><a href="#%D1%86%D0%B5%D0%BB%D1%8C-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Цель работы</a></li>
+<li><a href="#%D0%BE%D0%B1%D0%BE%D1%80%D1%83%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Оборудование</a></li>
+<li><a href="#%D1%85%D0%BE%D0%B4-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Ход работы</a>
+<ul>
+<li><a href="#%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F">Теория</a></li>
+<li><a href="#%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">Подключение</a></li>
+<li><a href="#%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BA%D0%BE%D0%B4%D0%B0">Использование кода</a></li>
+<li><a href="#%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D1%84%D0%BE%D1%82%D0%BE%D1%80%D0%B5%D0%B7%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BC">Работа с фоторезистором</a></li>
+<li><a href="#%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%D1%81-%D0%B4%D0%B0%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%BC-%D1%85%D0%BE%D0%BB%D0%BB%D0%B0">Работа с датчиком Холла</a></li>
+</ul>
+</li>
+<li><a href="#%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B">Вопросы</a></li>
+</ul>
+<h2 id="цель-работы">Цель работы</h2>
+<p>Знакомство со стендом: подключить модуль датчиков к модуля с микроконтроллером. Изучить основы работы с микроконтроллером, понятие простейшей периферии - порта и методики взаимодействия с ним. Изучить одну из разновидностей средств измерений - датчик. Овладеть знаниями о классификации датчиков. Определить, к какой группе датчиков следует относить датчик Холла и фоторезистор. Научиться получать правильные электрические показания с датчиков и преобразовывать в удобную для представления человека форму</p>
+<h2 id="оборудование">Оборудование</h2>
+<p>Модуль датчиков. Модуль «Микроконтроллер ATMEGA32, компьютер/ноутбук.</p>
+<h2 id="ход-работы">Ход работы</h2>
+<h3 id="теория">Теория</h3>
+<p>Изучите <a href="Theory.html">теорический блок</a> к данной лабораторной. Также ознакомьтесь с пособием по использованию стендом, если не сделали этого раннее (его можно найти в папке <code>/Doc</code> основного <a href="https://github.com/albatron22/sensors-lab">репозитория</a> лабораторных по сенсорами).</p>
+<h3 id="подключение">Подключение</h3>
+<p>Подключите модуль &quot;Микроконтроллер ATMEGA32&quot;, модуль &quot;Модуль датчиков&quot; к внешнему блоку питания (или у портам USB компьютера/ноутбука) с помощью кабеля USB. Выполните коммутацию модулей приборными проводами в соответствии с таблицей 1 с рис. 1.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\lab1-scheme.png" alt="fig.1" title="Схема подключения модулей"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Рис. 1. Схема подключения модулей</em></td>
+</tr>
+</tbody>
+</table>
+<p><em>Таблица 1. Коммутация модулей</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Порт микроконтроллера ATMEGA32</th>
+<th style="text-align:center">Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">PORTD:0</td>
+<td style="text-align:center">ЖК-дисплей: RS</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTD:1</td>
+<td style="text-align:center">ЖК-дисплей: R/W</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTD:2</td>
+<td style="text-align:center">ЖК-дисплей: E</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTD:4-7</td>
+<td style="text-align:center">ЖК-дисплей: DB4-DB7</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTA:0</td>
+<td style="text-align:center">Фоторезистор</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTA:1</td>
+<td style="text-align:center">Датчик Холла</td>
+</tr>
+<tr>
+<td style="text-align:center">PORTB:0</td>
+<td style="text-align:center">Генератор логических уровней: S1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="использование-кода">Использование кода</h3>
+<p>Для проведения измерений в лабораторной работе необходимо загрузить программу в микроконтроллер ATMEGA32. В папке <code>/src</code> лежат файлы исходного кода программы. Заголовочные файлы подключаемых модулей находятся <code>/include</code>. Основной выполняемый код находится в файле <code>/src/main.cpp</code>. Откройте его и проанализируйте код, который в нём содержится.</p>
+<p>Запустите компиляцию и сборку прошивки нажав на кнопку &quot;Build&quot; на нижней панели VSCode. Затем загрузите файл прошивки в память микроконтроллера нажав на кнопку &quot;Upload&quot;. После этого на ЖК-дисплее отобразятся измеряемые величины с подключённых датчиков. В случае с фоторезситором, на ЖК-дисплее будет отображно две строчки: сверху значение оцифрованное значение сигнала с фоторезистора 0-1023 ед., на нижней строчке будет отображено приблизительный уровень освещённости <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span>, в <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mtext>лк</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[лк]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord cyrillic_fallback">л</span><span class="mord cyrillic_fallback">к</span><span class="mclose">]</span></span></span></span>.</p>
+<h3 id="работа-с-фоторезистором">Работа с фоторезистором</h3>
+<ol>
+<li>Переключите тумблер S1 генератора логических уровней в начальное положение. Тумблером S1 выбирается датчик, фоторезстор или датчик Холла, с которого в данный момент снимаются измерения.</li>
+<li>Используйте точечный источник света (например, светодиод телефона). Облучайте им фоторезистор и снимите несколько показаний оцифрованного напряжения с фоторезситора и уровня освещенности при различных расстояниях между источником света и фоторезистором. Используйте для этого линейку. Полученные значения для нескольких расстояний занесите в таблицу ниже. Проведите 5-10 измерений с различными расстояниями.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Расстояние <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>мм</mtext></mrow><annotation encoding="application/x-tex">мм</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord cyrillic_fallback">м</span><span class="mord cyrillic_fallback">м</span></span></span></span></th>
+<th style="text-align:center">Значение АЦП</th>
+<th style="text-align:center">Напряжение <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow><annotation encoding="application/x-tex">V_{out}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>В</mtext></mrow><annotation encoding="application/x-tex">В</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cyrillic_fallback">В</span></span></span></span></th>
+<th style="text-align:center">Сопротивление <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{ph}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>кОм</mtext></mrow><annotation encoding="application/x-tex">кОм</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord cyrillic_fallback">к</span><span class="mord cyrillic_fallback">О</span><span class="mord cyrillic_fallback">м</span></span></span></span></th>
+<th style="text-align:center">Уровень освещенности <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>лк</mtext></mrow><annotation encoding="application/x-tex">лк</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord cyrillic_fallback">л</span><span class="mord cyrillic_fallback">к</span></span></span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">5-10 измерений</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>По полученным данным постройте график зависимости <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L=f(H)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span> уровня освещенности <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> от расстояния до источника света <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span>.</li>
+</ol>
+<h3 id="работа-с-датчиком-холла">Работа с датчиком Холла</h3>
+<ol>
+<li>Переключите тумблер S1 генератора логических уровней в крайнее положение. Таким образом выбираем датчик Холла в качестве источника измерений микроконтроллера.</li>
+<li>Используя постоянный магнит проведите ряд измерения, поднося магниты обоими полюсами к датчика и фиксируя его показания. Определите максимальное расстояние, на котором датчик Холла срабаатывает на постоянный магнит. Сделайте вывод о типе датчика по его реакции на полюса магнита (униполярный, биполярный, оминполярный).</li>
+</ol>
+<h2 id="вопросы">Вопросы</h2>
+<ol>
+<li>Дайте определение фоторезистивному эффекту. Устройство и принцип работы фоторезистора.</li>
+<li>Общая схема включения фототразнзистоа в измерительные схемы. Диапазон сопротивлений фототранзистора.</li>
+<li>В чем заключается эффект Холла? Какие существуют типы датчиков на эффекте Холла?</li>
+<li>Внутреннее устройство датчика Холла и схема его включения в измерительные схемы.</li>
+</ol>
 
     </body>
     </html>

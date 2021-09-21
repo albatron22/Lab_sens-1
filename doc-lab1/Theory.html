@@ -17,7 +17,8 @@
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -31,61 +32,57 @@
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
     <body class="vscode-body vscode-light">
         <h1 id="теория-к-лабораторной-работе--1-фоторезистор-как-датчик-освещённости-датчик-холла-для-измерения-магнитного-поля">Теория к лабораторной работе № 1 &quot;Фоторезистор как датчик освещённости. Датчик Холла для измерения магнитного поля&quot;</h1>
-<p>Фоторезисторы предоставляют возможность определять интенсивность освещения. Они малснькис, недорогис, трсбуют мало энсргии, легки в использовании, практически не подвержены износу. Именно из-за этого они часто используются в игрушках, гаджетах и приспособлениях.</p>
-<p>Фоторезисторы по своей сути являются резисторами, которые изменяют своесопротивление (измеряется в Ом) в зависимости от того, какое количество света попадае тна их чувствительные элементы. Как уже говорилось выше, они очень дешевые, имеют различные размеры и технические характеристики, но в большинстве своем не очень точные. Каждый фоторезистор ведет себя несколько иначе по сравнению с другим, даже если они из одной партии от производителя. Различия в показаниях могут достигать 50%и даже больше! Так что рассчитывать на прецизионные измерения не стоит. В основном их используют для определения общего уровня освещенности в конкретных, &quot;локальных&quot;, а не &quot;абсолютных&quot; условиях.</p>
+<ul>
+<li><a href="#%D1%84%D0%BE%D1%82%D0%BE%D1%80%D0%B5%D0%B7%D0%B8%D1%81%D1%82%D0%BE%D1%80">Фоторезистор</a>
+<ul>
+<li><a href="#%D0%B8%D0%B7%D0%BC%D0%B5%D1%80%D0%B5%D0%BD%D0%B8%D0%B5-%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D1%8F-%D0%BE%D1%81%D0%B2%D0%B5%D1%89%D1%91%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8">Измерение уровня освещённости:</a></li>
+</ul>
+</li>
+<li><a href="#%D0%B4%D0%B0%D1%82%D1%87%D0%B8%D0%BA-%D1%85%D0%BE%D0%BB%D0%BB%D0%B0">Датчик Холла</a></li>
+</ul>
+<h2 id="фоторезистор">Фоторезистор</h2>
+<p>Изменение электрического сопротивления полупроводника, обусловленное непосредственным действием излучения, называют фоторезистивным эффектом, или внутренним фотоэлектрическим эффектом. Изменение сопротивления, или проводимости, вызывают изменением концентрации носителей заряда.</p>
+<p>Фоторезисторы предоставляют возможность определять интенсивность освещения. Они миниатюрны, недорогие, требуют мало энергии, легки в использовании, практически не подвержены износу. Именно из-за этого они часто используются в игрушках, гаджетах и приспособлениях.
+Фоторезисторы имеют различные размеры и технические характеристики, но в большинстве своем не очень точные. Каждый фоторезистор ведет себя несколько иначе по сравнению с другим, даже если они из одной партии от производителя. Различия в показаниях могут достигать 50% и даже больше! Так что рассчитывать на прецизионные измерения не стоит. В основном их используют для определения общего уровня освещенности в конкретных, &quot;локальных&quot;, а не &quot;абсолютных&quot; условиях.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\pictures\photoresistor.png" alt="fig.1" title="Устройство фоторезистора"></th>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\photoresistor.png" alt="fig.1" title="Устройство фоторезистора"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Рис. 1. Устройство фоторезистора</td>
+<td style="text-align:center"><em>Рис. 1. Устройство фоторезистора</em></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Основные параметры фоторезисторов:</strong></p>
 <ul>
 <li>диапазон сопротивления: от 200 кОм (темно) до 10 кОм (светло);</li>
-<li>диапазон чувствительности: чувствительные элементы фиксируют длины</li>
-<li>волн в диапазоне от 400 нм (фиолетовый) до 600 нм (оранжевый).</li>
+<li>диапазон чувствительности: чувствительные элементы фиксируют длины волн в диапазоне от 400 нм (фиолетовый) до 600 нм (оранжевый).</li>
 </ul>
-<h2 id="измерение-уровня-освещённости">Измерение уровня освещённости:</h2>
-<p>Как известно, сопротивление фоторезистора изменяется в зависимости от уровня освещения. Когда темно, сопротивление резистора увеличивается до 10 МОм. С увеличением уровня освещенности сопротивление падает. Приведенный ниже график отображает приблизительное сопротивление сенсора при разных условиях освещения. Не забывайте, что характеристика каждого отдельного фоторезистора будет несколько отличаться, эти характеристики отображают только общую тенденцию.</p>
+<h3 id="измерение-уровня-освещённости">Измерение уровня освещённости:</h3>
+<p>Как известно, сопротивление фоторезистора изменяется в зависимости от уровня освещения. Когда темно, сопротивление резистора увеличивается до 10 МОм. С увеличением уровня освещенности сопротивление падает. Приведенный ниже график приблизительно отображает зависимость сопротивление сенсора от уровня освещенности. В общем, характеристика каждого отдельного фоторезистора будет несколько отличаться, эти характеристики отображают только общую тенденцию.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\pictures\illumination.png" alt="fig.2" title="Сопротивление фоторезистора в зависимости от уровня освещённости"></th>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\illumination.png" alt="fig.2" title="Сопротивление фоторезистора в зависимости от уровня освещённости"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">Рис. 2. Сопротивление фоторезистора в зависимости от уровня освещённости</td>
+<td style="text-align:center"><em>Рис. 2. Сопротивление фоторезистора в зависимости от уровня освещённости</em></td>
 </tr>
 </tbody>
 </table>
 <p>Обратите внимание, что характеристика нелинейная, а имеет логарифмический характер.</p>
-<p>Фоторезисторы не воспринимают весь диапазон световых волн. В большинстве исполнений они чувствительны к световым волнам в диапазоне между 700 нм (красный) и 500 нм (зеленый).</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\pictures\photoresistor-wavelength.png" alt="fig.3" title="Восприимчивость фоторезистора к различным длинам волн"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Рис. 3. Восприимчивость фоторезистора к различным длинам волн</td>
-</tr>
-</tbody>
-</table>
-<p>В большинстве даташитов используется люкс (лк) для обозначения сопротивления при определенном уровне освещенности. Но что это такое - лк? Это не метод, который мы используем для описания яркости, так что он привязан непосредственно к датчику. Ниже приведена таблица соответствий.</p>
-<p><strong>Таблица 1. Уровень освещенности, воспринимаемый человеком</strong></p>
+<p>В качестве примера уровней освещенности при различных услолвиях ниже приведена таблица 1.</p>
+<p><em>Таблица 1. Уровени освещенности, воспринимаемые человеком</em></p>
 <table>
 <thead>
 <tr>
@@ -140,6 +137,80 @@
 </tr>
 </tbody>
 </table>
+<p>Фоторезисторы не воспринимают весь диапазон световых волн. В большинстве исполнений они чувствительны к световым волнам в диапазоне между 700 нм (красный) и 500 нм (зеленый).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\photoresistor-wavelength.png" alt="fig.3" title="Спектральная чувствительность фоторезситора"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Рис. 3. Спектральная чувствительность фоторезситора</em></td>
+</tr>
+</tbody>
+</table>
+<p>Фоторезистор включается в схему измерения, которая представляет собой делитель напряжения. Выходной сигнал снимается с нижнего плеча делителя, который представляет собой падение напряжения на фоторезисторе. Это напряжение можно измерить с помощью АЦП микроконтроллера.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\lab1-circut.svg" alt="fig.4" title="Схема включения фоторезистора"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Рис. 4. Схема включения фоторезистора</em></td>
+</tr>
+</tbody>
+</table>
+<p>Выходной сигнал схемы измерения - падение напряжения на фоторезисторе, вычисляется по следующей формуле:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub><mo>=</mo><msub><mi>V</mi><mo lspace="0em" rspace="0em">+</mo></msub><mo>⋅</mo><mfrac><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub><mrow><mi>R</mi><mo>+</mo><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub></mrow></mfrac><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">V_{out} = V_{+} \cdot \frac{R_{ph}}{R + R_{ph}},
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.332438em;vertical-align:-0.972108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.972108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>где <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mo lspace="0em" rspace="0em">+</mo></msub></mrow><annotation encoding="application/x-tex">V_{+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span> - напряжение питания схемы (5В);</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{ph}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> - сопротивление фоторезистора при данном уровне освещённости;</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> - сопротивление верхнего плеча делителя напряжения, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>1</mn><mtext>кОм</mtext></mrow><annotation encoding="application/x-tex">R=1 кОм</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord cyrillic_fallback">к</span><span class="mord cyrillic_fallback">О</span><span class="mord cyrillic_fallback">м</span></span></span></span>;</p>
+<p>Отсюда по известному падению напряжения <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>V</mi><mo lspace="0em" rspace="0em">+</mo></msub></mrow><annotation encoding="application/x-tex">V_{+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.891661em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span> и резистора <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> можно найти сопротивление фоторезистора:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub><mo>=</mo><mi>R</mi><mfrac><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub><mrow><msub><mi>V</mi><mo lspace="0em" rspace="0em">+</mo></msub><mo>−</mo><msub><mi>V</mi><mrow><mi>o</mi><mi>u</mi><mi>t</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">R_{ph} = R \frac{V_{out}}{V_{+}-V_{out}}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.254661em;vertical-align:-0.894331em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.25833100000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">V</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2805559999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">u</span><span class="mord mathdefault mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.894331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<p>Связь сопротивления фоторезистора <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow></msub></mrow><annotation encoding="application/x-tex">R_{ph}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> с уровнем освещенности <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> можно аппроксимировать следующей формулой:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>531.21</mn><mo>⋅</mo><msubsup><mi>R</mi><mrow><mi>p</mi><mi>h</mi></mrow><mrow><mo>−</mo><mn>5</mn><mi mathvariant="normal">/</mi><mn>4</mn></mrow></msubsup></mrow><annotation encoding="application/x-tex">L = 531.21 \cdot R_{ph}^{-5/4}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">3</span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.4822159999999998em;vertical-align:-0.4374159999999999em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0448em;"><span style="top:-2.3986920000000005em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">h</span></span></span></span><span style="top:-3.2198em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">5</span><span class="mord mtight">/</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4374159999999999em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<hr>
+<h2 id="датчик-холла">Датчик Холла</h2>
+<p>Если через квадратную проводящую пластину пропустить постоянный ток, а саму пластину пронизать магнитным полем, чтобы линии индукции проходили через неё, то движущиеся по пластине электроны отклоняются силой Лоренца. Таким образом, с одного края электронов будет больше, чем с другой. Возникает разность потенциалов, то есть напряжение. И чем больше ток и сильней поле, тем большая разность будет.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\hall-effect.png" alt="fig.5" title="Проявление эффекта Холла при протекании тока через тонкую пластину"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Рис. 5. Проявление эффекта Холла при протекании тока через тонкую пластину</em></td>
+</tr>
+</tbody>
+</table>
+<p>Разновидности датчиков на эффекте Холла:</p>
+<ul>
+<li><strong>униполярные</strong> (unipolar): низкое состояние выхода соответствует приложенному южному полюсу магнита, высокое - удалению магнита; на северный полюс датчики не реагируют;</li>
+<li><strong>биполярные</strong> (bipolar): низкое состояние выхода соответствует приложенному южному полюсу магнита, высокое - северному полюсу; при удалении магнита состояние датчика не определено;</li>
+<li><strong>омниполярные</strong> (latching): низкое состояние выхода соответствует приложенному южному полюсу магнита, высокое - северному полюсу; при удалении магнита состояние выхода не меняется, т.е. срабатывание датчика происходит только при смене полюсов.</li>
+</ul>
+<p>В обучающем стенде представлен дискретный датчик магнитного поля на эффекте Холла. Сигнальный выход представляет из себя открытый коллектор, подтянутый резистором к питанию датчика (Рис. 6).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="file:///d:\User\Documents\Teaching\sensors-lab\Lab1\doc-lab1\images\hall-circuts.svg" alt="fig.6" title="Внутренне устройство датчика Холаа и схема включения"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><em>Рис. 6. Внутренне устройство датчика Холаа и схема включения</em></td>
+</tr>
+</tbody>
+</table>
+<p>Внутри микросхемы датчика сигнал с чувствительного элемента на эффекте Холла (генератор Холла) усиливается, далее через триггер Шмитта поступает на базу выходного транзистора, коллектор которого остается открытым. Схема подключения датчика включает в себя питание и подтягивающий резистор <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> на выход микросхемы датчика.</p>
+<p>При поднесении к нему магнита нужной полярностью (правильной стороной) сигнальный вывод соединяется с общим проводом через п-р-п переход. Такие датчики как <a href="A3141-2-3-4-Datasheet.pdf">АЗ144</a> находят применение вместо морально устаревших герконов, в енкодерах, при измерении силы тока и в индикаторах вращения. Их можно применять как в релейной логике, просто подключив к выходу катушку электромагнитного реле, так и совместно с микроконтроллерами в качестве дискретного датчика холла.</p>
 
     </body>
     </html>
