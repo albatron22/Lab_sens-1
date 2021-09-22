@@ -52,14 +52,14 @@
 </li>
 <li><a href="#%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B">Вопросы</a></li>
 </ul>
-<h2 id="цель-работы">Цель работы</h2>
+<h2 id="цель-работы"><strong>Цель работы</strong></h2>
 <p>Знакомство со стендом: подключить модуль датчиков к модуля с микроконтроллером. Изучить основы работы с микроконтроллером, понятие простейшей периферии - порта и методики взаимодействия с ним. Изучить одну из разновидностей средств измерений - датчик. Овладеть знаниями о классификации датчиков. Определить, к какой группе датчиков следует относить датчик Холла и фоторезистор. Научиться получать правильные электрические показания с датчиков и преобразовывать в удобную для представления человека форму</p>
-<h2 id="оборудование">Оборудование</h2>
+<h2 id="оборудование"><strong>Оборудование</strong></h2>
 <p>Модуль датчиков. Модуль «Микроконтроллер ATMEGA32, компьютер/ноутбук.</p>
-<h2 id="ход-работы">Ход работы</h2>
-<h3 id="теория">Теория</h3>
+<h2 id="ход-работы"><strong>Ход работы</strong></h2>
+<h3 id="теория"><strong>Теория</strong></h3>
 <p>Изучите <a href="Theory.html">теорический блок</a> к данной лабораторной. Также ознакомьтесь с пособием по использованию стендом, если не сделали этого раннее (его можно найти в папке <code>/Doc</code> основного <a href="https://github.com/albatron22/sensors-lab">репозитория</a> лабораторных по сенсорами).</p>
-<h3 id="подключение">Подключение</h3>
+<h3 id="подключение"><strong>Подключение</strong></h3>
 <p>Подключите модуль &quot;Микроконтроллер ATMEGA32&quot;, модуль &quot;Модуль датчиков&quot; к внешнему блоку питания (или у портам USB компьютера/ноутбука) с помощью кабеля USB. Выполните коммутацию модулей приборными проводами в соответствии с таблицей 1 с рис. 1.</p>
 <table>
 <thead>
@@ -112,10 +112,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="использование-кода">Использование кода</h3>
+<h3 id="использование-кода"><strong>Использование кода</strong></h3>
 <p>Для проведения измерений в лабораторной работе необходимо загрузить программу в микроконтроллер ATMEGA32. В папке <code>/src</code> лежат файлы исходного кода программы. Заголовочные файлы подключаемых модулей находятся <code>/include</code>. Основной выполняемый код находится в файле <code>/src/main.cpp</code>. Откройте его и проанализируйте код, который в нём содержится.</p>
 <p>Запустите компиляцию и сборку прошивки нажав на кнопку &quot;Build&quot; на нижней панели VSCode. Затем загрузите файл прошивки в память микроконтроллера нажав на кнопку &quot;Upload&quot;. После этого на ЖК-дисплее отобразятся измеряемые величины с подключённых датчиков. В случае с фоторезситором, на ЖК-дисплее будет отображно две строчки: сверху значение оцифрованное значение сигнала с фоторезистора 0-1023 ед., на нижней строчке будет отображено приблизительный уровень освещённости <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span>, в <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mtext>лк</mtext><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[лк]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord cyrillic_fallback">л</span><span class="mord cyrillic_fallback">к</span><span class="mclose">]</span></span></span></span>.</p>
-<h3 id="работа-с-фоторезистором">Работа с фоторезистором</h3>
+<h3 id="работа-с-фоторезистором"><strong>Работа с фоторезистором</strong></h3>
 <ol>
 <li>Переключите тумблер S1 генератора логических уровней в начальное положение. Тумблером S1 выбирается датчик, фоторезстор или датчик Холла, с которого в данный момент снимаются измерения.</li>
 <li>Используйте точечный источник света (например, светодиод телефона). Облучайте им фоторезистор и снимите несколько показаний оцифрованного напряжения с фоторезситора и уровня освещенности при различных расстояниях между источником света и фоторезистором. Используйте для этого линейку. Полученные значения для нескольких расстояний занесите в таблицу ниже. Проведите 5-10 измерений с различными расстояниями.</li>
@@ -143,15 +143,15 @@
 <ol start="3">
 <li>По полученным данным постройте график зависимости <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mi>f</mi><mo stretchy="false">(</mo><mi>H</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L=f(H)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mclose">)</span></span></span></span> уровня освещенности <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span></span></span></span> от расстояния до источника света <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi></mrow><annotation encoding="application/x-tex">H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span>.</li>
 </ol>
-<h3 id="работа-с-датчиком-холла">Работа с датчиком Холла</h3>
+<h3 id="работа-с-датчиком-холла"><strong>Работа с датчиком Холла</strong></h3>
 <ol>
 <li>Переключите тумблер S1 генератора логических уровней в крайнее положение. Таким образом выбираем датчик Холла в качестве источника измерений микроконтроллера.</li>
 <li>Используя постоянный магнит проведите ряд измерения, поднося магниты обоими полюсами к датчика и фиксируя его показания. Определите максимальное расстояние, на котором датчик Холла срабаатывает на постоянный магнит. Сделайте вывод о типе датчика по его реакции на полюса магнита (униполярный, биполярный, оминполярный).</li>
 </ol>
-<h2 id="вопросы">Вопросы</h2>
+<h2 id="вопросы"><strong>Вопросы</strong></h2>
 <ol>
 <li>Дайте определение фоторезистивному эффекту. Устройство и принцип работы фоторезистора.</li>
-<li>Общая схема включения фототразнзистоа в измерительные схемы. Диапазон сопротивлений фототранзистора.</li>
+<li>Общая схема включения фоторезистора в измерительные схемы. Диапазон сопротивлений фоторезистора.</li>
 <li>В чем заключается эффект Холла? Какие существуют типы датчиков на эффекте Холла?</li>
 <li>Внутреннее устройство датчика Холла и схема его включения в измерительные схемы.</li>
 </ol>
